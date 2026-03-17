@@ -10,30 +10,40 @@ export const Screen = (): JSX.Element => {
       <HeaderSection />
 
       {/* Hero Section */}
-      <section className="w-full px-10 mt-4">
+      <section className="w-full px-10 mt-12">
         <div className="flex flex-row gap-8">
           {/* Left: Photo + "Обо мне" button */}
           <div className="relative flex-shrink-0 w-[38%]">
-            <img
-              className="w-full aspect-[553/505] object-cover rounded-[50px]"
-              alt="Надежда Уварова"
-              src="/figmaAssets/----.png"
-              style={{ transform: "scaleX(-1)" }}
-            />
-            {/* "Обо мне" circular button — top-right of photo */}
-            <a
-              href="#about"
-              className="absolute top-0 -right-[10px] flex flex-col items-center justify-center w-[97px] h-[97px] bg-[#202020] rounded-full z-10"
-            >
-              <span className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[15px] leading-[18px]">
-                Обо мне
-              </span>
+            {/* Photo background shape */}
+            <div className="absolute inset-0 rounded-[50px] overflow-hidden">
               <img
-                className="w-[18px] h-[18px] mt-1"
-                alt="Arrow"
-                src="/figmaAssets/arrow-up-right.svg"
+                className="w-full h-full object-cover"
+                alt="Надежда Уварова"
+                src="/figmaAssets/----.png"
+                style={{ transform: "scaleX(-1)" }}
               />
-            </a>
+            </div>
+            {/* Spacer to maintain aspect ratio */}
+            <div className="w-full aspect-[553/505]" />
+
+            {/* "Обо мне" button with circular white cutout */}
+            <div className="absolute top-0 right-0 z-10 w-[97px] h-[97px]">
+              {/* White circle behind — creates smooth curved cutout in the photo */}
+              <div className="absolute -inset-[8px] bg-white rounded-full" />
+              <a
+                href="#about"
+                className="relative z-[1] flex flex-col items-center justify-center w-full h-full bg-[#202020] rounded-full"
+              >
+                <span className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[15px] leading-[18px]">
+                  Обо мне
+                </span>
+                <img
+                  className="w-[18px] h-[18px] mt-1"
+                  alt="Arrow"
+                  src="/figmaAssets/arrow-up-right.svg"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Right: Quote + Title + Tagline */}

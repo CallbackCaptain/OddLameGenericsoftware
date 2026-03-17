@@ -138,17 +138,19 @@ const ServiceCard = ({ service }: { service: (typeof servicesRow1)[0] }) => {
           ))}
         </div>
 
-        {/* Button — always at the bottom */}
-        <Button className="w-full h-[63px] flex items-center justify-center gap-2.5 p-5 mt-auto bg-[#202020] rounded-[32px] hover:bg-[#333333] cursor-pointer">
-          <span className="font-medium text-white text-[15px] leading-[22.5px] whitespace-nowrap [font-family:'Manrope',Helvetica] tracking-[0]">
-            Заказать услугу
-          </span>
-          <img
-            className="w-[23px] h-[23px]"
-            alt="Arrow up right"
-            src="/figmaAssets/arrow-up-right.svg"
-          />
-        </Button>
+        {/* Button — always at the bottom, with guaranteed gap from text */}
+        <div className="mt-auto pt-6">
+          <Button className="w-full h-[63px] flex items-center justify-center gap-2.5 p-5 bg-[#202020] rounded-[32px] hover:bg-[#333333] cursor-pointer">
+            <span className="font-medium text-white text-[15px] leading-[22.5px] whitespace-nowrap [font-family:'Manrope',Helvetica] tracking-[0]">
+              Заказать услугу
+            </span>
+            <img
+              className="w-[23px] h-[23px]"
+              alt="Arrow up right"
+              src="/figmaAssets/arrow-up-right.svg"
+            />
+          </Button>
+        </div>
       </div>
     </div>
   );

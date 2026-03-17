@@ -17,7 +17,7 @@ const navItems = [
 
 export const HeaderSection = (): JSX.Element => {
   return (
-    <header className="w-full flex items-center justify-between px-10 py-3 h-[67px]">
+    <header className="w-full flex items-center justify-between px-10 pt-[15px] pb-3 h-auto">
       {/* Logo */}
       <img
         className="w-[67px] h-[67px] object-cover flex-shrink-0"

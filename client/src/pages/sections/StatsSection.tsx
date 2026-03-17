@@ -6,46 +6,52 @@ const statsData = [
     valueColor: "text-white",
     descColor: "text-white",
     valueParts: [
-      { text: "100+", size: "text-[50px] leading-[57.5px]" },
-      { text: "дел", size: "text-2xl leading-[27.6px]" },
+      { text: "100+", size: "text-[40px] md:text-[50px] leading-[46px] md:leading-[57.5px]" },
+      { text: "дел", size: "text-xl md:text-2xl leading-[23px] md:leading-[27.6px]" },
     ],
     valueAlign: "items-end",
     description: "экономии за счёт грамотной правовой стратегии",
+    mobileOrder: "order-3 md:order-none",
+    mobileSpan: "col-span-2 md:col-span-1",
   },
   {
     bg: "bg-[#f3f3f3]",
     valueColor: "text-[#202020]",
     descColor: "text-[#343434]",
     valueParts: [
-      { text: "10+", size: "text-[50px] leading-[57.5px]" },
-      { text: "лет", size: "text-2xl leading-[27.6px]" },
+      { text: "10+", size: "text-[40px] md:text-[50px] leading-[46px] md:leading-[57.5px]" },
+      { text: "лет", size: "text-xl md:text-2xl leading-[23px] md:leading-[27.6px]" },
     ],
     valueAlign: "items-end",
     description: "практики в сопровождении юридических лиц",
+    mobileOrder: "order-1 md:order-none",
+    mobileSpan: "col-span-1",
   },
   {
     bg: "bg-[#202020]",
     valueColor: "text-white",
     descColor: "text-white",
     valueParts: [
-      { text: "до", size: "text-2xl leading-[27.6px]" },
-      { text: "30%", size: "text-[50px] leading-[57.5px]" },
+      { text: "до", size: "text-xl md:text-2xl leading-[23px] md:leading-[27.6px]" },
+      { text: "30%", size: "text-[40px] md:text-[50px] leading-[46px] md:leading-[57.5px]" },
     ],
     valueAlign: "items-start",
     description: "экономии за счёт грамотной стратегии",
+    mobileOrder: "order-2 md:order-none",
+    mobileSpan: "col-span-1",
   },
 ];
 
 export const StatsSection = (): JSX.Element => {
   return (
-    <section className="flex w-full items-stretch gap-6 px-10 mt-8">
+    <section className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 px-4 md:px-10 mt-6 md:mt-8">
       {statsData.map((stat, index) => (
         <Card
           key={index}
-          className={`${stat.bg} flex-1 rounded-[32px] border-0 shadow-none`}
+          className={`${stat.bg} ${stat.mobileOrder} ${stat.mobileSpan} rounded-[20px] md:rounded-[32px] border-0 shadow-none`}
         >
-          <CardContent className="flex flex-col items-start justify-center gap-3 p-[30px] h-[129px]">
-            <div className={`flex ${stat.valueAlign} gap-2.5`}>
+          <CardContent className="flex flex-col items-start justify-center gap-2 md:gap-3 p-4 md:p-[30px] h-auto md:h-[129px]">
+            <div className={`flex ${stat.valueAlign} gap-2 md:gap-2.5`}>
               {stat.valueParts.map((part, partIndex) => (
                 <span
                   key={partIndex}
@@ -56,7 +62,7 @@ export const StatsSection = (): JSX.Element => {
               ))}
             </div>
             <p
-              className={`font-normal ${stat.descColor} text-[15px] leading-[22.5px] [font-family:'Manrope',Helvetica] tracking-[0]`}
+              className={`font-normal ${stat.descColor} text-[13px] md:text-[15px] leading-[20px] md:leading-[22.5px] [font-family:'Manrope',Helvetica] tracking-[0]`}
             >
               {stat.description}
             </p>

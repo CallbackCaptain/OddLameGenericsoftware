@@ -1,61 +1,63 @@
 import { HeaderSection } from "./sections/HeaderSection";
-import { IntroTextSection } from "./sections/IntroTextSection";
 import { ServicesListSection } from "./sections/ServicesListSection";
 import { ServicesSection } from "./sections/ServicesSection";
 import { StatsSection } from "./sections/StatsSection";
 
 export const Screen = (): JSX.Element => {
   return (
-    <div className="bg-white w-full min-w-[1440px] relative">
+    <div className="bg-white w-full">
       {/* Header */}
       <HeaderSection />
 
       {/* Hero Section */}
-      <section className="w-full relative">
-        <div className="flex flex-row items-start w-full px-10 pt-8">
-          {/* Left: Main photo */}
-          <div className="flex-shrink-0">
+      <section className="w-full px-10 mt-4">
+        <div className="flex flex-row gap-8">
+          {/* Left: Photo + "Обо мне" button */}
+          <div className="relative flex-shrink-0 w-[38%]">
             <img
-              className="w-[553px] h-[505px] object-cover"
-              alt="Image"
+              className="w-full aspect-[553/505] object-cover rounded-[50px]"
+              alt="Надежда Уварова"
               src="/figmaAssets/----.png"
+              style={{ transform: "scaleX(-1)" }}
             />
-          </div>
-
-          {/* Middle: "Обо мне" button + IntroTextSection stacked */}
-          <div className="flex flex-col items-start ml-0">
-            {/* "Обо мне" circular button */}
-            <div className="relative w-[99px] h-[97px] flex-shrink-0 ml-[-10px]">
-              <div className="absolute top-0 left-0 w-[97px] h-[97px] bg-[#202020] rounded-full" />
-              <div className="absolute top-8 left-[18px] [font-family:'Manrope',Helvetica] font-semibold text-white text-[15px] tracking-[0] leading-[18px] whitespace-nowrap">
+            {/* "Обо мне" circular button — top-right of photo */}
+            <a
+              href="#about"
+              className="absolute top-0 -right-[10px] flex flex-col items-center justify-center w-[97px] h-[97px] bg-[#202020] rounded-full z-10"
+            >
+              <span className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[15px] leading-[18px]">
                 Обо мне
-              </div>
+              </span>
               <img
-                className="absolute top-14 left-10 w-[18px] h-[18px]"
-                alt="Arrow up right"
+                className="w-[18px] h-[18px] mt-1"
+                alt="Arrow"
                 src="/figmaAssets/arrow-up-right.svg"
               />
-            </div>
-
-            {/* IntroTextSection placed below the button in the middle column */}
-            <div className="mt-0">
-              <IntroTextSection />
-            </div>
+            </a>
           </div>
 
-          {/* Right: Quote text */}
-          <div className="flex-1 flex justify-end">
-            <div className="w-[445px] [font-family:'Manrope',Helvetica] font-normal text-[#333333] text-xl text-right tracking-[0] leading-[30px]">
+          {/* Right: Quote + Title + Tagline */}
+          <div className="flex-1 flex flex-col">
+            {/* Quote — top right */}
+            <div className="self-end [font-family:'Manrope',Helvetica] font-normal text-[#343434] text-xl text-right leading-[30px] tracking-[0] max-w-[445px]">
               «Моя задача — чтобы проблемы бизнеса решались, а не обсуждались»
             </div>
-          </div>
-        </div>
 
-        {/* Tagline below the hero row */}
-        <div className="w-[783px] ml-[617px] mt-4 pb-8 [font-family:'Manrope',Helvetica] font-normal text-[#333333] text-xl leading-[30px] tracking-[0]">
-          Партнёрский подход к каждому делу — защищаю ваш бизнес,
-          <br />
-          как свой собственный
+            {/* Main title */}
+            <div className="mt-auto [font-family:'Manrope',Helvetica] font-normal text-[80px] leading-[92px] tracking-[0]">
+              <span className="text-[#202020]">Бизнес-юрист </span>
+              <span className="font-semibold text-[#226a43]">
+                Надежда Уварова
+              </span>
+            </div>
+
+            {/* Tagline */}
+            <div className="mt-3 [font-family:'Manrope',Helvetica] font-normal text-[#343434] text-xl leading-[30px] tracking-[0]">
+              Партнёрский подход к каждому делу — защищаю ваш бизнес,
+              <br />
+              как свой собственный
+            </div>
+          </div>
         </div>
       </section>
 

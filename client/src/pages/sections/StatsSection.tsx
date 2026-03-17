@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { StaggerContainer, StaggerItem } from "@/lib/animations";
 
 const statsData = [
   {
@@ -44,31 +45,38 @@ const statsData = [
 
 export const StatsSection = (): JSX.Element => {
   return (
-    <section className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 px-4 md:px-10 mt-6 md:mt-8">
+    <StaggerContainer
+      className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 px-4 md:px-10 mt-6 md:mt-8"
+      staggerDelay={0.15}
+    >
       {statsData.map((stat, index) => (
-        <Card
+        <StaggerItem
           key={index}
-          className={`${stat.bg} ${stat.mobileOrder} ${stat.mobileSpan} rounded-[20px] md:rounded-[32px] border-0 shadow-none`}
+          className={`${stat.mobileOrder} ${stat.mobileSpan}`}
         >
-          <CardContent className="flex flex-col items-start justify-center gap-2 md:gap-3 p-4 md:p-[30px] h-auto md:h-[129px]">
-            <div className={`flex ${stat.valueAlign} gap-2 md:gap-2.5`}>
-              {stat.valueParts.map((part, partIndex) => (
-                <span
-                  key={partIndex}
-                  className={`font-semibold ${stat.valueColor} ${part.size} whitespace-nowrap [font-family:'Manrope',Helvetica] tracking-[0]`}
-                >
-                  {part.text}
-                </span>
-              ))}
-            </div>
-            <p
-              className={`font-normal ${stat.descColor} text-[13px] md:text-[15px] leading-[20px] md:leading-[22.5px] [font-family:'Manrope',Helvetica] tracking-[0]`}
-            >
-              {stat.description}
-            </p>
-          </CardContent>
-        </Card>
+          <Card
+            className={`${stat.bg} rounded-[20px] md:rounded-[32px] border-0 shadow-none h-full transition-transform duration-300 hover:scale-[1.02]`}
+          >
+            <CardContent className="flex flex-col items-start justify-center gap-2 md:gap-3 p-4 md:p-[30px] h-auto md:h-[129px]">
+              <div className={`flex ${stat.valueAlign} gap-2 md:gap-2.5`}>
+                {stat.valueParts.map((part, partIndex) => (
+                  <span
+                    key={partIndex}
+                    className={`font-semibold ${stat.valueColor} ${part.size} whitespace-nowrap [font-family:'Manrope',Helvetica] tracking-[0]`}
+                  >
+                    {part.text}
+                  </span>
+                ))}
+              </div>
+              <p
+                className={`font-normal ${stat.descColor} text-[13px] md:text-[15px] leading-[20px] md:leading-[22.5px] [font-family:'Manrope',Helvetica] tracking-[0]`}
+              >
+                {stat.description}
+              </p>
+            </CardContent>
+          </Card>
+        </StaggerItem>
       ))}
-    </section>
+    </StaggerContainer>
   );
 };

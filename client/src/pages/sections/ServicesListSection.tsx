@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/lib/animations";
 
 const allServices = [
   {
@@ -92,9 +94,12 @@ const ServiceCard = ({ service }: { service: (typeof allServices)[0] }) => {
   const textColor = service.isGreen ? "text-white" : "text-[#343434]";
 
   return (
-    <div className="relative w-full h-full">
-      {/* Card background with rounded corners */}
-      <div className={`absolute inset-0 ${bgClass} rounded-[20px] md:rounded-[30px]`} />
+    <motion.div
+      className="relative w-full h-full"
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
+      <div className={`absolute inset-0 ${bgClass} rounded-[20px] md:rounded-[30px] transition-shadow duration-300`} />
 
       {/* White notch overlay for badge area */}
       <div className="absolute top-0 left-0 z-10 bg-white pr-[10px] pb-[10px] md:pr-[14px] md:pb-[14px] rounded-br-[16px] md:rounded-br-[20px] flex flex-row gap-1.5 md:gap-2">
@@ -110,73 +115,71 @@ const ServiceCard = ({ service }: { service: (typeof allServices)[0] }) => {
 
       {/* Card content */}
       <div className="relative z-[1] flex flex-col h-full px-4 md:px-[25px] pt-[52px] md:pt-[70px] pb-4 md:pb-[25px]">
-        {/* Title */}
         <h3
           className={`font-semibold ${titleColor} text-[22px] md:text-[28px] leading-[30px] md:leading-[39.2px] [font-family:'Manrope',Helvetica] tracking-[0] mb-3 md:mb-4`}
         >
           {service.title}
         </h3>
 
-        {/* Items list */}
         <div className="flex flex-col gap-2 md:gap-2.5 flex-1">
           {service.items.map((item, idx) => (
             <div key={idx} className="flex gap-2">
-              <span
-                className={`${textColor} text-[13px] md:text-[15px] leading-[20px] md:leading-[22.5px] select-none`}
-              >
+              <span className={`${textColor} text-[13px] md:text-[15px] leading-[20px] md:leading-[22.5px] select-none`}>
                 &bull;
               </span>
-              <span
-                className={`font-normal ${textColor} text-[13px] md:text-[15px] leading-[20px] md:leading-[22.5px] [font-family:'Manrope',Helvetica] tracking-[0]`}
-              >
+              <span className={`font-normal ${textColor} text-[13px] md:text-[15px] leading-[20px] md:leading-[22.5px] [font-family:'Manrope',Helvetica] tracking-[0]`}>
                 {item}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Button */}
         <div className="mt-auto pt-4 md:pt-6">
-          <Button className="w-full h-[50px] md:h-[63px] flex items-center justify-center gap-2.5 p-4 md:p-5 bg-[#202020] rounded-[24px] md:rounded-[32px] hover:bg-[#333333] cursor-pointer">
-            <span className="font-medium text-white text-[13px] md:text-[15px] leading-[22.5px] whitespace-nowrap [font-family:'Manrope',Helvetica] tracking-[0]">
-              Заказать услугу
-            </span>
-            <img
-              className="w-[18px] h-[18px] md:w-[23px] md:h-[23px]"
-              alt="Arrow up right"
-              src="/figmaAssets/arrow-up-right.svg"
-            />
-          </Button>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button className="w-full h-[50px] md:h-[63px] flex items-center justify-center gap-2.5 p-4 md:p-5 bg-[#202020] rounded-[24px] md:rounded-[32px] hover:bg-[#333333] cursor-pointer transition-colors duration-200">
+              <span className="font-medium text-white text-[13px] md:text-[15px] leading-[22.5px] whitespace-nowrap [font-family:'Manrope',Helvetica] tracking-[0]">
+                Заказать услугу
+              </span>
+              <img className="w-[18px] h-[18px] md:w-[23px] md:h-[23px]" alt="Arrow" src="/figmaAssets/arrow-up-right.svg" />
+            </Button>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export const ServicesListSection = (): JSX.Element => {
   return (
-    <section className="w-full px-4 md:px-10">
+    <section id="services" className="w-full px-4 md:px-10">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between w-full mb-6 md:mb-[35px]">
-        <div className="flex flex-col">
-          <h2 className="font-semibold text-[#202020] text-[28px] md:text-[45px] leading-[36px] md:leading-[58.5px] [font-family:'Manrope',Helvetica] tracking-[0]">
-            Услуги юриста
-          </h2>
-          <span className="font-semibold text-[#aeaeae] text-[28px] md:text-[45px] leading-[36px] md:leading-[58.5px] [font-family:'Manrope',Helvetica] tracking-[0]">
-            Выберите подходящию
-          </span>
+      <FadeIn>
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between w-full mb-6 md:mb-[35px]">
+          <div className="flex flex-col">
+            <h2 className="font-semibold text-[#202020] text-[28px] md:text-[45px] leading-[36px] md:leading-[58.5px] [font-family:'Manrope',Helvetica] tracking-[0]">
+              Услуги юриста
+            </h2>
+            <span className="font-semibold text-[#aeaeae] text-[28px] md:text-[45px] leading-[36px] md:leading-[58.5px] [font-family:'Manrope',Helvetica] tracking-[0]">
+              Выберите подходящию
+            </span>
+          </div>
+          <p className="hidden md:block w-[330px] font-normal text-[#343434] text-xl text-right leading-[30px] [font-family:'Manrope',Helvetica] tracking-[0] mt-[14px]">
+            Юридические решения для бизнеса на всех этапах работы
+          </p>
         </div>
-        <p className="hidden md:block w-[330px] font-normal text-[#343434] text-xl text-right leading-[30px] [font-family:'Manrope',Helvetica] tracking-[0] mt-[14px]">
-          Юридические решения для бизнеса на всех этапах работы
-        </p>
-      </div>
+      </FadeIn>
 
-      {/* Cards grid — 1 col on mobile, 3 cols on desktop */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full pb-8 md:pb-10 auto-rows-fr">
+      {/* Cards grid */}
+      <StaggerContainer
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full pb-8 md:pb-10 auto-rows-fr"
+        staggerDelay={0.1}
+      >
         {allServices.map((service) => (
-          <ServiceCard key={service.id} service={service} />
+          <StaggerItem key={service.id}>
+            <ServiceCard service={service} />
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </section>
   );
 };

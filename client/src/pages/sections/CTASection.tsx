@@ -15,16 +15,14 @@ export const CTASection = (): JSX.Element => {
           <TextReveal text="уже сегодня" delay={0.5} />
           <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex-shrink-0"
+            className="inline-flex items-center justify-center w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex-shrink-0 mt-[0.2em]"
             whileHover={{ scale: 1.2, rotate: 45 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
           >
-            <img
-              className="w-[24px] h-[24px] md:w-[36px] md:h-[36px]"
-              alt="Arrow"
-              src="/figmaAssets/arrow-up-right.svg"
-            />
+            <svg className="w-[28px] h-[28px] md:w-[60px] md:h-[60px]" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.7188 45.2828L45.2848 14.7168M45.2848 14.7168H14.7188M45.2848 14.7168V45.2828" stroke="#226A43" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </motion.a>
         </div>
       </div>

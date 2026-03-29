@@ -197,6 +197,230 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Manrope', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
+    color: #202020;
+  }
+}
+
+/* === About Section === */
+.about-section {
+  padding: 80px 40px;
+}
+
+.about-section__container {
+  --photo-width: 40.66%;  /* 553 из 1360 */
+  --card-overlap: 8.6%;   /* 117 из 1360 — вырез по ширине */
+  --card-overlap-y: 20.07%; /* 273 из 1360 — вырез по высоте */
+}
+
+/* Top: photo left, text right */
+.about-section__top {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  margin-bottom: calc(-1 * var(--card-overlap-y)); /* 273px выреза из 550 фото */
+}
+
+.about-section__photo-wrap {
+  flex: 0 0 var(--photo-width);
+  position: relative;
+  z-index: 1;
+}
+
+.about-section__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 32px 32px 160px 32px;
+}
+
+.about-section__text {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.about-section__title {
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 130%;
+  margin-bottom: 20px;
+  color: #202020;
+}
+
+.about-section__desc {
+  font-size: 15px;
+  line-height: 165%;
+  color: #343434;
+  max-width: 680px;
+}
+
+/* Cards row — привязаны к фото: ширина фото минус вырез */
+.about-section__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+  margin-left: calc(var(--photo-width) - var(--card-overlap) + 24px);
+  padding-top: 1.5%; /* подгонка — низ карточки вровень с низом фото */
+}
+
+.about-card {
+  background: #F3F3F3;
+  border-radius: 32px;
+  padding: 24px;
+  aspect-ratio: 283 / 248;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.about-card__icon {
+  width: 50px;
+  height: 50px;
+  background: #226A43;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-card__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  margin-bottom: 10px;
+  color: #202020;
+}
+
+.about-card__desc {
+  font-size: 15px;
+  line-height: 150%;
+  color: #343434;
+}
+
+/* Адаптив */
+@media (max-width: 1100px) {
+  .about-section__top {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .about-section__photo-wrap {
+    flex: none;
+    width: 100%;
+    max-width: 550px;
+  }
+
+  .about-section__cards {
+    margin-left: 0;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-section {
+    padding: 40px 16px;
+  }
+
+  .about-section__title {
+    font-size: 32px;
+  }
+
+  .about-section__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    min-height: auto;
+  }
+}
+
+/* === Principles === */
+.principles-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.principles-cards {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 12px;
+  align-content: end; /* карточки прижаты к низу */
+}
+
+.principles-card__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 300px;
+}
+
+.principles-card--offset {
+  margin-top: 90px;
+}
+
+.principles-photo {
+  width: 30%;
+  flex-shrink: 0;
+}
+
+.principles-photo__container {
+  position: relative;
+}
+
+.principles-photo__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.principles-quote {
+  background: #f3f3f3;
+  border-radius: 30px;
+  padding: 20px 24px;
+  font-family: 'Manrope', Helvetica;
+  font-size: 15px;
+  line-height: 150%;
+  color: #343434;
+  position: absolute;
+  z-index: 2;
+  top: calc(83.8% + 12px); /* начало выреза (1 - 129/798) + отступ сверху */
+  bottom: 0;
+  right: calc(38.1% + 12px); /* правый край выреза (1 - 342/553) + отступ справа */
+  left: -30%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .principles-layout {
+    flex-direction: column;
+  }
+
+  .principles-photo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .principles-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .principles-card--offset {
+    margin-top: 0;
+  }
+
+  .principles-photo__wrap {
+    border-radius: 30px;
+  }
+
+  .principles-quote {
+    border-radius: 20px;
   }
 }

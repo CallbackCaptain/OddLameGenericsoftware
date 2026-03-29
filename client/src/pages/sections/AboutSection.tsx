@@ -3,72 +3,84 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/lib/animations";
 
 const features = [
   {
-    title: "Быстрое вхождение в процесс",
-    description:
-      "Я быстро погружаюсь в специфику и отрасль бизнеса. Это позволяет оперативно включиться в работу без длительной раскачки.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    ),
+    title: "Быстрое вовлечение в процесс",
+    description: "Я оперативно погружаюсь в специфику бизнеса, без затяжных этапов",
   },
   {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    ),
     title: "Доверительные отношения",
-    description:
-      'Строю работу с клиентом как партнёр. Мне важна прозрачность, поэтому я всегда "на связи" — информация доступна и понятна.',
+    description: "Говорю прямо о шансах, сроках и стоимости. Никаких скрытых платежей и ложных обещаний",
   },
   {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+    ),
     title: "Безопасность и конфиденциальность",
-    description:
-      "Все данные клиентов находятся под надёжной защитой. Это не формальность — это то, на чём строится доверие.",
+    description: "Никаких утечек информации. Всё, что вы доверили мне — останется между нами",
   },
 ];
 
 export const AboutSection = (): JSX.Element => {
   return (
-    <section id="about" className="w-full px-4 md:px-10 py-10 md:py-16">
-      <div className="flex flex-col md:flex-row gap-6 md:gap-10 mb-8 md:mb-12">
-        <FadeIn direction="left" className="w-full md:w-[45%] flex-shrink-0">
-          <motion.div
-            className="rounded-[30px] md:rounded-[50px] overflow-hidden"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.4 }}
-          >
+    <section id="about" className="about-section">
+      <div className="about-section__container">
+        {/* Top row: photo + text */}
+        <div className="about-section__top">
+          <FadeIn direction="left" className="about-section__photo-wrap">
             <img
-              className="w-full aspect-[4/3] object-cover"
-              alt="Надежда Уварова"
-              src="/figmaAssets/----.png"
+              src="/photo-about.png"
+              alt="Надежда Уварова — юрист"
+              className="about-section__photo"
             />
-          </motion.div>
-        </FadeIn>
+          </FadeIn>
 
-        <FadeIn direction="right" delay={0.2} className="flex-1 flex flex-col justify-center">
-          <h2 className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[28px] md:text-[45px] leading-[36px] md:leading-[58.5px] tracking-[0] mb-4 md:mb-6">
-            Юрист, которому можно
-            <br />
-            доверить бизнес
-          </h2>
-          <p className="[font-family:'Manrope',Helvetica] font-normal text-[#343434] text-[14px] md:text-base leading-[22px] md:leading-[26px] tracking-[0]">
-            Меня зовут Надежда Уварова. Более 10 лет я помогаю предпринимателям
-            решать юридические вопросы — от запуска бизнеса и подготовки
-            документов до сопровождения сделок и представительства в судах.
-          </p>
-        </FadeIn>
+          <FadeIn direction="right" delay={0.1} className="about-section__text">
+            <h2 className="about-section__title">
+              Юрист, которому можно доверить бизнес
+            </h2>
+            <p className="about-section__desc">
+              Меня зовут Надежда Уварова. Более 10 лет я оказываю юридическое
+              сопровождение предпринимателям и компаниям — от запуска бизнеса и
+              первых шагов стартапа до сопровождения уже работающих организаций
+            </p>
+          </FadeIn>
+        </div>
+
+        {/* Cards row */}
+        <StaggerContainer className="about-section__cards" staggerDelay={0.1}>
+          {features.map((feature, idx) => (
+            <StaggerItem key={idx}>
+              <motion.div
+                className="about-card"
+                whileHover={{
+                  y: -4,
+                  boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="about-card__icon">
+                  {feature.icon}
+                </div>
+                <h3 className="about-card__title">{feature.title}</h3>
+                <p className="about-card__desc">{feature.description}</p>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
-
-      <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6" staggerDelay={0.12}>
-        {features.map((feature, idx) => (
-          <StaggerItem key={idx}>
-            <motion.div
-              className="bg-[#f3f3f3] rounded-[20px] md:rounded-[30px] p-5 md:p-6 h-full"
-              whileHover={{ y: -4, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
-              transition={{ duration: 0.3 }}
-            >
-              <h3 className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] tracking-[0] mb-2 md:mb-3">
-                {feature.title}
-              </h3>
-              <p className="[font-family:'Manrope',Helvetica] font-normal text-[#343434] text-[13px] md:text-[15px] leading-[20px] md:leading-[22.5px] tracking-[0]">
-                {feature.description}
-              </p>
-            </motion.div>
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
     </section>
   );
 };

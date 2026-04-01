@@ -3,19 +3,6 @@ import { StaggerContainer, StaggerItem } from "@/lib/animations";
 
 const statsData = [
   {
-    bg: "bg-[#226a43]",
-    valueColor: "text-white",
-    descColor: "text-white",
-    valueParts: [
-      { text: "100+", size: "text-[40px] md:text-[50px] leading-[46px] md:leading-[57.5px]" },
-      { text: "дел", size: "text-xl md:text-2xl leading-[23px] md:leading-[27.6px]" },
-    ],
-    valueAlign: "items-end",
-    description: "экономии за счёт грамотной правовой стратегии",
-    mobileOrder: "order-3 md:order-none",
-    mobileSpan: "col-span-2 md:col-span-1",
-  },
-  {
     bg: "bg-[#f3f3f3]",
     valueColor: "text-[#202020]",
     descColor: "text-[#343434]",
@@ -29,7 +16,7 @@ const statsData = [
     mobileSpan: "col-span-1",
   },
   {
-    bg: "bg-[#202020]",
+    bg: "bg-[#226a43]",
     valueColor: "text-white",
     descColor: "text-white",
     valueParts: [
@@ -37,16 +24,29 @@ const statsData = [
       { text: "30%", size: "text-[40px] md:text-[50px] leading-[46px] md:leading-[57.5px]" },
     ],
     valueAlign: "items-start",
-    description: "экономии за счёт грамотной стратегии",
+    description: "экономии за счёт грамотной правовой стратегии",
     mobileOrder: "order-2 md:order-none",
     mobileSpan: "col-span-1",
+  },
+  {
+    bg: "bg-[#202020]",
+    valueColor: "text-white",
+    descColor: "text-white",
+    valueParts: [
+      { text: "100+", size: "text-[40px] md:text-[50px] leading-[46px] md:leading-[57.5px]" },
+      { text: "дел", size: "text-xl md:text-2xl leading-[23px] md:leading-[27.6px]" },
+    ],
+    valueAlign: "items-end",
+    description: "экономии за счёт грамотной правовой стратегии",
+    mobileOrder: "order-3 md:order-none",
+    mobileSpan: "col-span-2 md:col-span-1",
   },
 ];
 
 export const StatsSection = (): JSX.Element => {
   return (
     <StaggerContainer
-      className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 px-4 md:px-10 mt-6 md:mt-8"
+      className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 px-4 md:px-10 mt-6 md:-mt-[132px] md:max-w-[60%] relative z-10"
       staggerDelay={0.15}
     >
       {statsData.map((stat, index) => (

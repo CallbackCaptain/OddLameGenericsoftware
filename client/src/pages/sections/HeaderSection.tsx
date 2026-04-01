@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -72,6 +72,7 @@ export const HeaderSection = (): JSX.Element => {
         <Button
           variant="outline"
           className="h-auto flex-shrink-0 px-4 py-3 md:px-[25px] md:py-5 rounded-[32px] border border-solid border-[#dcdcdc] bg-transparent hover:bg-[#226a43] hover:text-white hover:border-[#226a43] shadow-none [font-family:'Manrope',Helvetica] font-semibold text-[#333333] text-[13px] md:text-[15px] tracking-[0] leading-[22.5px] whitespace-nowrap transition-colors duration-300"
+          onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
         >
           Оставить заявку
         </Button>

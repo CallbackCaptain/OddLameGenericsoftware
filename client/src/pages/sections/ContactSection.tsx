@@ -1,10 +1,49 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/lib/animations";
 
 export const ContactSection = (): JSX.Element => {
   const [agreed, setAgreed] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "");
+    const d = digits.startsWith("7") ? digits : digits.startsWith("8") ? "7" + digits.slice(1) : "7" + digits;
+    let result = "+7";
+    if (d.length > 1) result += " " + d.slice(1, 4);
+    if (d.length > 4) result += " " + d.slice(4, 7);
+    if (d.length > 7) result += " " + d.slice(7, 9);
+    if (d.length > 9) result += " " + d.slice(9, 11);
+    return result;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+    if (raw === "" || raw === "+") {
+      setPhone("");
+      setPhoneError("");
+      return;
+    }
+    const formatted = formatPhone(raw);
+    setPhone(formatted);
+    setPhoneError("");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!agreed) return;
+    const digits = phone.replace(/\D/g, "");
+    if (digits.length !== 11) {
+      setPhoneError("Введите номер в формате +7 XXX XXX XX XX");
+      return;
+    }
+    setShowSuccess(true);
+    setPhone("");
+    setPhoneError("");
+  };
 
   return (
     <section id="contact" className="w-full px-4 md:px-10 py-10 md:py-16">
@@ -91,19 +130,27 @@ export const ContactSection = (): JSX.Element => {
               Заполните форму и передайте решение правовых задач профессионалу
             </h3>
 
-            <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               <motion.input
                 type="text"
                 placeholder="Ваше имя"
                 className="w-full px-5 py-3.5 bg-white rounded-full [font-family:'Manrope',Helvetica] text-[15px] text-[#202020] placeholder:text-[#aeaeae] outline-none transition-shadow duration-200"
                 whileFocus={{ boxShadow: "0 0 0 3px rgba(211,184,91,0.4)" }}
               />
-              <motion.input
-                type="tel"
-                placeholder="Номер телефона"
-                className="w-full px-5 py-3.5 bg-white rounded-full [font-family:'Manrope',Helvetica] text-[15px] text-[#202020] placeholder:text-[#aeaeae] outline-none transition-shadow duration-200"
-                whileFocus={{ boxShadow: "0 0 0 3px rgba(211,184,91,0.4)" }}
-              />
+              <div>
+                <motion.input
+                  type="tel"
+                  placeholder="+7 XXX XXX XX XX"
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  maxLength={16}
+                  className={`w-full px-5 py-3.5 bg-white rounded-full [font-family:'Manrope',Helvetica] text-[15px] text-[#202020] placeholder:text-[#aeaeae] outline-none transition-shadow duration-200 ${phoneError ? "ring-2 ring-red-400" : ""}`}
+                  whileFocus={{ boxShadow: phoneError ? "0 0 0 3px rgba(239,68,68,0.3)" : "0 0 0 3px rgba(211,184,91,0.4)" }}
+                />
+                {phoneError && (
+                  <p className="[font-family:'Manrope',Helvetica] text-[12px] text-red-300 mt-1.5 ml-5">{phoneError}</p>
+                )}
+              </div>
               <motion.input
                 type="text"
                 placeholder="Вопрос / комментарий"
@@ -127,7 +174,8 @@ export const ContactSection = (): JSX.Element => {
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button
                   type="submit"
-                  className="w-full py-4 h-auto bg-[#d3b85b] hover:bg-[#c4a94c] rounded-full [font-family:'Manrope',Helvetica] font-semibold text-white text-[16px] mt-2 transition-colors duration-200"
+                  disabled={!agreed}
+                  className="w-full py-4 h-auto bg-[#d3b85b] hover:bg-[#c4a94c] rounded-full [font-family:'Manrope',Helvetica] font-semibold text-white text-[16px] mt-2 transition-colors duration-200 disabled:opacity-50"
                 >
                   Отправить
                 </Button>
@@ -136,6 +184,53 @@ export const ContactSection = (): JSX.Element => {
           </motion.div>
         </FadeIn>
       </div>
+
+      {/* Popup "Спасибо за заявку" */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              onClick={() => setShowSuccess(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+            <motion.div
+              className="relative bg-white rounded-[30px] p-8 md:p-12 max-w-md w-full text-center"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            >
+              <div className="w-16 h-16 bg-[#226a43] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <h3 className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[24px] md:text-[28px] leading-[32px] mb-3">
+                Спасибо за заявку!
+              </h3>
+              <p className="[font-family:'Manrope',Helvetica] font-normal text-[#666] text-[15px] leading-[22px] mb-8">
+                Мы свяжемся с вами в ближайшее время для обсуждения вашего вопроса
+              </p>
+              <motion.button
+                onClick={() => setShowSuccess(false)}
+                className="px-8 py-3.5 bg-[#226a43] text-white rounded-full [font-family:'Manrope',Helvetica] font-semibold text-[15px] transition-colors duration-200 hover:bg-[#1b5636]"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Хорошо
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

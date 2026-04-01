@@ -43,7 +43,12 @@ export const AboutSection = (): JSX.Element => {
             <img
               src="/photo-about.png"
               alt="Надежда Уварова — юрист"
-              className="about-section__photo"
+              className="about-section__photo about-section__photo--desktop"
+            />
+            <img
+              src="/photo-about-mobile.png"
+              alt="Надежда Уварова — юрист"
+              className="about-section__photo about-section__photo--mobile"
             />
           </FadeIn>
 

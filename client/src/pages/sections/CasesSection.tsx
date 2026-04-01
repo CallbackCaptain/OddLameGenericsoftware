@@ -14,16 +14,19 @@ const cases = [
     title: "Абонентское сопровождение сети магазинов",
     description:
       "Разработка типовых договоров для сети розничных магазинов. Настройка системы контроля контрагентов. Мат.проверка системы учета.",
+    image: "/case-3.png",
   },
   {
     title: "Успешная защита при налоговой проверке",
     description:
       "Доначисление более 5 млн рублей. Полная подготовка документации. Представительство в ИФНС. Результат — снижение доначислений на 90%.",
+    image: "/case-1.jpg",
   },
   {
     title: "Разработка договора с иностранным партнёром",
     description:
       "Клиент планировал выход на рынок Казахстана. Подготовка и адаптация контракта к законодательству РК. Результат — подписание контракта.",
+    image: "/case-2.jpg",
   },
 ];
 
@@ -79,7 +82,9 @@ export const CasesSection = (): JSX.Element => {
               whileHover={{ y: -4, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
               transition={{ duration: 0.3 }}
             >
-              <div className="w-full aspect-[16/10] bg-[#d9d9d9]" />
+              <div className="w-full aspect-[16/10] bg-[#d9d9d9] overflow-hidden">
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+              </div>
               <div className="p-4 md:p-6">
                 <h3 className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] tracking-[0] mb-2">
                   {item.title}

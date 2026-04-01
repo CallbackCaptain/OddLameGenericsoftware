@@ -235,6 +235,10 @@
   border-radius: 32px 32px 160px 32px;
 }
 
+.about-section__photo--mobile {
+  display: none;
+}
+
 .about-section__text {
   flex: 1;
   padding-top: 10px;
@@ -326,6 +330,15 @@
     padding: 40px 16px;
   }
 
+  .about-section__photo--desktop {
+    display: none;
+  }
+
+  .about-section__photo--mobile {
+    display: block;
+    border-radius: 32px;
+  }
+
   .about-section__title {
     font-size: 32px;
   }
@@ -343,20 +356,22 @@
 .principles-layout {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .principles-cards {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
   align-content: end; /* карточки прижаты к низу */
+  width: 45%;
+  flex-shrink: 0;
 }
 
 .principles-card__img {
   width: 100%;
   height: auto;
   display: block;
-  max-width: 300px;
 }
 
 .principles-card--offset {
@@ -400,6 +415,11 @@
 @media (max-width: 1100px) {
   .principles-layout {
     flex-direction: column;
+    gap: 40px;
+  }
+
+  .principles-cards {
+    width: 100%;
   }
 
   .principles-photo {
@@ -421,6 +441,8 @@
   }
 
   .principles-quote {
+    left: 0;
+    right: calc(38.1% + 12px);
     border-radius: 20px;
   }
 }

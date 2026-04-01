@@ -45,8 +45,7 @@ export const Screen = (): JSX.Element => {
               <motion.img
                 className="w-full h-full object-cover"
                 alt="Надежда Уварова"
-                src="/figmaAssets/----.png"
-                style={{ transform: "scaleX(-1)" }}
+                src="/figmaAssets/hero-photo.jpg"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.4 }}
               />

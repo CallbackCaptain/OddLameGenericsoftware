@@ -11,7 +11,6 @@ import { PrinciplesSection } from "./sections/PrinciplesSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection";
 import { FAQSection } from "./sections/FAQSection";
 import { ContactSection } from "./sections/ContactSection";
-import { FooterSection } from "./sections/FooterSection";
 
 export const Screen = (): JSX.Element => {
   return (
@@ -142,7 +141,6 @@ export const Screen = (): JSX.Element => {
       <TestimonialsSection />
       <FAQSection />
       <ContactSection />
-      <FooterSection />
     </div>
   );
 };

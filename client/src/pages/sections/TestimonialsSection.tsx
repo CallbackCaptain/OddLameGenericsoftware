@@ -3,18 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/lib/animations";
 
 const testimonials = [
-  {
-    text: "Обращались к Надежде по поводу налоговой проверки. Всё объяснила простыми словами, подготовила документы и сопровождала до самого решения. Проверка закончилась без штрафов, хотя изначально сумма была внушительная. Спокойная, чёткая и надёжная — теперь на абонентском сопровождении у неё постоянно!",
-    name: "Виктор Романов",
-    role: "предприниматель в сфере торговли",
-    date: "10.11.2025",
-  },
-  {
-    text: "Мы работаем в быстро меняющейся сфере, и юрист нам нужен не для «пожаров», а для стратегии. Надежда помогла выстроить договорную базу, проверила контрагентов и сократила юридические риски. Главное — с ней всегда понятно, что и зачем делается. Экономим время и нервы",
-    name: "Александр Дроздов",
-    role: "основатель IT-компании",
-    date: "02.08.2025",
-  },
+  { image: "/testimonial-0.svg", alt: "Отзыв Виктора Романова" },
+  { image: "/testimonial-1.svg", alt: "Отзыв Александра Дроздова" },
 ];
 
 export const TestimonialsSection = (): JSX.Element => {
@@ -58,34 +48,16 @@ export const TestimonialsSection = (): JSX.Element => {
         {testimonials.map((t, idx) => (
           <motion.div
             key={idx}
-            className="border border-[#e8e8e8] rounded-[20px] md:rounded-[30px] p-5 md:p-8 flex flex-col"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: idx * 0.15 }}
-            whileHover={{ borderColor: "#226a43", boxShadow: "0 4px 20px rgba(34,106,67,0.08)" }}
           >
-            <span className="[font-family:'Manrope',Helvetica] font-bold text-[#226a43] text-[40px] md:text-[50px] leading-[30px] mb-4">
-              &ldquo;
-            </span>
-
-            <p className="[font-family:'Manrope',Helvetica] font-normal text-[#343434] text-[14px] md:text-[16px] leading-[22px] md:leading-[26px] tracking-[0] flex-1 mb-6">
-              {t.text}
-            </p>
-
-            <div className="flex items-end justify-between">
-              <div>
-                <div className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[15px] md:text-[17px] leading-[22px]">
-                  {t.name}
-                </div>
-                <div className="[font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px] leading-[20px]">
-                  {t.role}
-                </div>
-              </div>
-              <span className="[font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px]">
-                {t.date}
-              </span>
-            </div>
+            <img
+              src={t.image}
+              alt={t.alt}
+              className="w-full h-auto rounded-[4px]"
+            />
           </motion.div>
         ))}
       </div>

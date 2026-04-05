@@ -278,6 +278,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .about-card__icon {
@@ -418,6 +423,11 @@
 
   .principles-photo {
     width: 100%;
+  }
+
+  .principles-quote {
+    left: 0;
+    right: calc(38.1% + 12px);
   }
 }
 

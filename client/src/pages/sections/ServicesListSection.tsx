@@ -22,7 +22,7 @@ const ServiceCard = ({ service }: { service: (typeof allServices)[0] }) => {
       <img
         src={service.src}
         alt={service.alt}
-        className="w-full h-auto block rounded-[20px] md:rounded-[30px]"
+        className="w-full h-auto block"
       />
       {/* Clickable button overlay positioned over the button area in the SVG */}
       <a

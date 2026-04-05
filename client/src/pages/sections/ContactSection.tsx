@@ -144,11 +144,11 @@ export const ContactSection = (): JSX.Element => {
 
         <FadeIn direction="right" delay={0.2} className="w-full md:w-[50%]">
           <motion.div
-            className="relative bg-[#226a43] rounded-[20px] md:rounded-[30px] p-6 md:p-8 md:pb-10 md:pr-[270px] lg:pr-[330px] overflow-visible"
+            className="relative bg-[#226a43] rounded-[20px] md:rounded-[30px] p-6 md:p-8 md:pb-10 [@media(min-width:1208px)_and_(min-height:914px)]:pr-[330px] overflow-visible"
             whileHover={{ boxShadow: "0 12px 40px rgba(34,106,67,0.2)" }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[22px] md:text-[28px] leading-[30px] md:leading-[36px] tracking-[0] mb-6 relative z-10 md:mr-[-140px] lg:mr-[-180px]">
+            <h3 className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[22px] md:text-[28px] leading-[30px] md:leading-[36px] tracking-[0] mb-6 relative z-10 [@media(min-width:1208px)_and_(min-height:914px)]:mr-[-180px]">
               Заполните форму и передайте решение правовых задач профессионалу
             </h3>
 
@@ -207,7 +207,7 @@ export const ContactSection = (): JSX.Element => {
             <img
               src="/bot_form_pic.png"
               alt="Юрист"
-              className="hidden md:block absolute right-0 bottom-0 w-[280px] lg:w-[340px] h-auto object-contain"
+              className="hidden [@media(min-width:1208px)_and_(min-height:914px)]:block absolute right-0 bottom-0 w-[280px] lg:w-[340px] h-auto object-contain"
             />
           </motion.div>
         </FadeIn>

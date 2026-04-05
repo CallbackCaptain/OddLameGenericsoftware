@@ -85,6 +85,20 @@ export const PrinciplesSection = (): JSX.Element => {
       {/* Mobile: horizontal slider */}
       <MobileSlider />
 
+      {/* Mobile: photo with quote */}
+      <div className="md:hidden mt-8">
+        <div className="principles-photo__container">
+          <img
+            className="principles-photo__img"
+            alt="Надежда Уварова"
+            src="/photo-principles.png"
+          />
+          <div className="principles-quote">
+            <p>«Юрист — это не расходы, а инвестиция в отсутствие проблем»</p>
+          </div>
+        </div>
+      </div>
+
       {/* Desktop: original layout */}
       <div className="hidden md:flex principles-layout">
         {/* Карточки каскадом */}

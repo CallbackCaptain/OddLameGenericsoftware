@@ -78,11 +78,11 @@ export const CasesSection = (): JSX.Element => {
           {cases.map((item, idx) => (
             <motion.div
               key={idx}
-              className="bg-[#f3f3f3] rounded-[20px] md:rounded-[30px] overflow-hidden"
+              className="bg-[#f3f3f3] rounded-[20px] md:rounded-[30px]"
               whileHover={{ y: -4, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
               transition={{ duration: 0.3 }}
             >
-              <div className="w-full aspect-[16/10] bg-[#d9d9d9] overflow-hidden">
+              <div className="w-full aspect-[16/10] bg-[#d9d9d9] overflow-hidden rounded-t-[20px] md:rounded-t-[30px]">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
               </div>
               <div className="p-4 md:p-6">

@@ -9,7 +9,7 @@ export const ServicesSection = (): JSX.Element => {
           className="text-[#226a43]"
         />
       </div>
-      <div className="md:ml-[283px] [font-family:'Manrope',Helvetica] font-semibold text-[28px] md:text-[70px] leading-[130%] md:leading-[140%] tracking-[0]">
+      <div className="md:text-right [font-family:'Manrope',Helvetica] font-semibold text-[28px] md:text-[70px] leading-[130%] md:leading-[140%] tracking-[0]">
         <TextReveal
           text="конкурентным преимуществом"
           className="text-[#202020]"

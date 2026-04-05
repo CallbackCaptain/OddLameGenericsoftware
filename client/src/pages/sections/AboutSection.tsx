@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/lib/animations";
 
 const features = [
@@ -33,6 +35,68 @@ const features = [
   },
 ];
 
+const FeatureCard = ({ feature }: { feature: (typeof features)[0] }) => (
+  <motion.div
+    className="about-card"
+    whileHover={{ y: -4, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
+    transition={{ duration: 0.3 }}
+  >
+    <div className="about-card__icon">{feature.icon}</div>
+    <h3 className="about-card__title">{feature.title}</h3>
+    <p className="about-card__desc">{feature.description}</p>
+  </motion.div>
+);
+
+const FeaturesSlider = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+    slidesToScroll: 1,
+  });
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setActiveIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
+
+  return (
+    <div className="about-section__slider">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {features.map((feature, idx) => (
+            <div
+              key={idx}
+              className="flex-[0_0_80%] min-w-0 pr-4 sm:flex-[0_0_60%] md:flex-[0_0_45%]"
+            >
+              <FeatureCard feature={feature} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex justify-center gap-2 mt-5">
+        {features.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => emblaApi?.scrollTo(idx)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              activeIndex === idx ? "bg-[#226a43] w-6" : "bg-[#dcdcdc] w-2"
+            }`}
+            aria-label={`Слайд ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export const AboutSection = (): JSX.Element => {
   return (
     <section id="about" className="about-section">
@@ -64,27 +128,17 @@ export const AboutSection = (): JSX.Element => {
           </FadeIn>
         </div>
 
-        {/* Cards row */}
+        {/* Cards row — desktop grid (≥1100px) */}
         <StaggerContainer className="about-section__cards" staggerDelay={0.1}>
           {features.map((feature, idx) => (
             <StaggerItem key={idx}>
-              <motion.div
-                className="about-card"
-                whileHover={{
-                  y: -4,
-                  boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="about-card__icon">
-                  {feature.icon}
-                </div>
-                <h3 className="about-card__title">{feature.title}</h3>
-                <p className="about-card__desc">{feature.description}</p>
-              </motion.div>
+              <FeatureCard feature={feature} />
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* Slider — shown below 1100px */}
+        <FeaturesSlider />
       </div>
     </section>
   );

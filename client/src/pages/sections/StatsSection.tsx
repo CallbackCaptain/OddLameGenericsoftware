@@ -46,7 +46,7 @@ const statsData = [
 export const StatsSection = (): JSX.Element => {
   return (
     <StaggerContainer
-      className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 px-4 md:px-10 mt-6 md:-mt-[132px] md:max-w-[60%] relative z-10"
+      className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 px-4 md:px-10 mt-6 md:mt-10 min-[1350px]:-mt-[132px] md:max-w-full min-[1350px]:max-w-[60%] relative z-10"
       staggerDelay={0.15}
     >
       {statsData.map((stat, index) => (

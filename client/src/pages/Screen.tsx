@@ -21,10 +21,10 @@ export const Screen = (): JSX.Element => {
       <section className="w-full px-4 md:px-10 mt-6 md:mt-12 relative">
         <div className="flex flex-col md:flex-row">
           {/* Left column — text + buttons */}
-          <div className="flex-1 flex flex-col order-2 md:order-1 md:max-w-[57.6%]">
+          <div className="flex-1 flex flex-col order-2 md:order-1 md:max-w-[58%] xl:max-w-[57.6%]">
             {/* Title */}
             <motion.div
-              className="mt-4 md:mt-0 [font-family:'Manrope',Helvetica] font-normal text-[36px] md:text-[80px] leading-[42px] md:leading-[115%] tracking-[0]"
+              className="mt-4 md:mt-0 [font-family:'Manrope',Helvetica] font-normal text-[36px] md:text-[52px] xl:text-[80px] leading-[42px] md:leading-[110%] xl:leading-[115%] tracking-[0]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -37,7 +37,7 @@ export const Screen = (): JSX.Element => {
 
             {/* Description */}
             <motion.div
-              className="mt-6 md:mt-10 [font-family:'Manrope',Helvetica] font-normal text-[#343434] text-base md:text-xl leading-[26px] md:leading-[150%] tracking-[0]"
+              className="mt-6 md:mt-8 xl:mt-10 [font-family:'Manrope',Helvetica] font-normal text-[#343434] text-base md:text-lg xl:text-xl leading-[26px] md:leading-[150%] tracking-[0]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -49,7 +49,7 @@ export const Screen = (): JSX.Element => {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex gap-4 mt-6 md:mt-10"
+              className="flex gap-4 mt-6 md:mt-8 xl:mt-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -77,7 +77,7 @@ export const Screen = (): JSX.Element => {
 
           {/* Right column — photo */}
           <motion.div
-            className="relative flex-shrink-0 w-full md:w-[35%] order-1 md:order-2 md:ml-auto"
+            className="relative flex-shrink-0 w-full md:w-[42%] xl:w-[35%] order-1 md:order-2 md:ml-auto"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
@@ -88,27 +88,30 @@ export const Screen = (): JSX.Element => {
               src="/figmaAssets/hero-photo-main.png"
             />
 
-            {/* Quote in the top-left cutout — 308/674 = 45.7% of photo width */}
+            {/* Quote in the top-left cutout — 308/674 = 45.7% of photo width, 14.8% height */}
             <motion.div
-              className="absolute top-2 md:top-4 left-[-30px] md:left-[-60px] w-[65%] pt-2 pr-4 text-right"
-              style={{ height: "14.8%" }}
+              className="absolute top-0 left-0 w-[50%] h-[17%] flex items-end justify-end pr-[0.5%] pb-[5%] text-right min-[1290px]:whitespace-nowrap"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <p className="[font-family:'Manrope',Helvetica] font-normal text-[#343434] text-[13px] md:text-[16px] leading-[20px] md:leading-[150%] tracking-[0]">
-                «Моя задача — чтобы проблемы бизнеса решались, а&nbsp;не&nbsp;обсуждались»
+              <p className="[font-family:'Manrope',Helvetica] font-normal text-[#343434] text-[clamp(12px,2.1vw,22px)] leading-[130%] tracking-[0]">
+                <span className="min-[1290px]:hidden">
+                  «Моя задача —<br />чтобы проблемы бизнеса<br />решались, а&nbsp;не&nbsp;обсуждались»
+                </span>
+                <span className="hidden min-[1290px]:inline">
+                  «Моя задача — чтобы проблемы бизнеса<br />решались, а&nbsp;не&nbsp;обсуждались»
+                </span>
               </p>
             </motion.div>
 
             {/* "Обо мне" button — bottom right */}
             <motion.div
-              className="absolute bottom-[6px] right-[4px] md:bottom-[8px] md:right-[6px] z-10 w-[70px] h-[70px] md:w-[97px] md:h-[97px]"
+              className="absolute bottom-[1.2%] right-[0.9%] z-10 w-[17%] aspect-square"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.6, type: "spring", stiffness: 200 }}
             >
-              <div className="absolute -inset-[6px] md:-inset-[8px] bg-white rounded-full" />
               <motion.a
                 href="#about"
                 className="relative z-[1] flex flex-col items-center justify-center w-full h-full bg-[#202020] rounded-full"
@@ -116,11 +119,11 @@ export const Screen = (): JSX.Element => {
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[12px] md:text-[15px] leading-[18px]">
+                <span className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[clamp(10px,1.1vw,15px)] leading-[1.2]">
                   Обо мне
                 </span>
                 <img
-                  className="w-[14px] h-[14px] md:w-[18px] md:h-[18px] mt-1"
+                  className="w-[18%] h-[18%] mt-[4%]"
                   alt="Arrow"
                   src="/figmaAssets/arrow-up-right.svg"
                 />

@@ -5,13 +5,13 @@ export const CTASection = (): JSX.Element => {
   return (
     <section className="w-full px-4 md:px-10 py-10 md:py-16">
       <div className="[font-family:'Manrope',Helvetica] font-semibold tracking-[0]">
-        <div className="text-[#226a43] text-[28px] md:text-[70px] leading-[130%] md:leading-[140%]">
+        <div className="text-[#226a43] text-[28px] md:text-[70px] leading-[130%] md:leading-[140%] text-left">
           <TextReveal text="Запишитесь на консультацию" />
         </div>
-        <div className="md:ml-[283px] text-[#202020] text-[28px] md:text-[70px] leading-[130%] md:leading-[140%]">
+        <div className="text-[#202020] text-[28px] md:text-[70px] leading-[130%] md:leading-[140%] md:text-right">
           <TextReveal text="и защитите свой бизнес" delay={0.25} />
         </div>
-        <div className="md:ml-[140px] flex items-center gap-4 text-[#202020] text-[28px] md:text-[70px] leading-[130%] md:leading-[140%]">
+        <div className="md:ml-[10%] flex items-center gap-4 text-[#202020] text-[28px] md:text-[70px] leading-[130%] md:leading-[140%]">
           <TextReveal text="уже сегодня" delay={0.5} />
           <motion.a
             href="#contact"

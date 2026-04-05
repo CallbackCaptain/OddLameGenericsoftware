@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
 import { FadeIn } from "@/lib/animations";
 
 const principles = [
@@ -7,6 +9,64 @@ const principles = [
   { src: "/principle-3.png", alt: "03 — Бизнес-ориентированность" },
   { src: "/principle-4.png", alt: "04 — Защита всей вашей информации" },
 ];
+
+const MobileSlider = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+    slidesToScroll: 1,
+  });
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setActiveIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
+
+  return (
+    <div className="md:hidden">
+      <div className="overflow-hidden -mx-4" ref={emblaRef}>
+        <div className="flex">
+          {principles.map((p, idx) => (
+            <div
+              key={idx}
+              className="flex-[0_0_75%] min-w-0 pl-4 first:pl-4 last:pr-4"
+            >
+              <motion.img
+                src={p.src}
+                alt={p.alt}
+                className="w-full h-auto block"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {principles.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => emblaApi?.scrollTo(idx)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              activeIndex === idx
+                ? "bg-[#226a43] w-6"
+                : "bg-[#dcdcdc]"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const PrinciplesSection = (): JSX.Element => {
   return (
@@ -22,7 +82,11 @@ export const PrinciplesSection = (): JSX.Element => {
         </div>
       </FadeIn>
 
-      <div className="principles-layout">
+      {/* Mobile: horizontal slider */}
+      <MobileSlider />
+
+      {/* Desktop: original layout */}
+      <div className="hidden md:flex principles-layout">
         {/* Карточки каскадом */}
         <div className="principles-cards">
           {principles.map((p, idx) => (

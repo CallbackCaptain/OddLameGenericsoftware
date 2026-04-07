@@ -37,7 +37,7 @@ const ServiceCard = ({ service }: { service: (typeof allServices)[0] }) => {
 const MobileSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    containScroll: "trimSnaps",
+    containScroll: false,
     slidesToScroll: 1,
   });
   const [activeIndex, setActiveIndex] = useState(0);
@@ -60,7 +60,7 @@ const MobileSlider = () => {
           {allServices.map((service) => (
             <div
               key={service.id}
-              className="flex-[0_0_85%] min-w-0 pl-4 first:pl-4 last:pr-4"
+              className="flex-[0_0_85%] min-w-0 pl-4"
             >
               <ServiceCard service={service} />
             </div>

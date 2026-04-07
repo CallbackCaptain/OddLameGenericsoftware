@@ -37,7 +37,7 @@ const features = [
 
 const FeatureCard = ({ feature }: { feature: (typeof features)[0] }) => (
   <motion.div
-    className="about-card"
+    className="about-card h-full"
     whileHover={{ y: -4, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
     transition={{ duration: 0.3 }}
   >
@@ -50,7 +50,7 @@ const FeatureCard = ({ feature }: { feature: (typeof features)[0] }) => (
 const FeaturesSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    containScroll: "trimSnaps",
+    containScroll: false,
     slidesToScroll: 1,
   });
   const [activeIndex, setActiveIndex] = useState(0);
@@ -69,11 +69,11 @@ const FeaturesSlider = () => {
   return (
     <div className="about-section__slider">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+        <div className="flex items-stretch">
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="flex-[0_0_80%] min-w-0 pr-4 sm:flex-[0_0_60%] md:flex-[0_0_45%]"
+              className={`flex-[0_0_80%] min-w-0 sm:flex-[0_0_60%] md:flex-[0_0_45%] ${idx < features.length - 1 ? "pr-4" : ""}`}
             >
               <FeatureCard feature={feature} />
             </div>

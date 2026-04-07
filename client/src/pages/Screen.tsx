@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/lib/animations";
 import { HeaderSection } from "./sections/HeaderSection";
@@ -13,6 +14,8 @@ import { FAQSection } from "./sections/FAQSection";
 import { ContactSection } from "./sections/ContactSection";
 
 export const Screen = (): JSX.Element => {
+  const [heroLoaded, setHeroLoaded] = useState(false);
+
   return (
     <div className="bg-white w-full max-w-[1920px] mx-auto overflow-x-hidden">
       <HeaderSection />
@@ -83,9 +86,10 @@ export const Screen = (): JSX.Element => {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <img
-              className="w-full h-auto block"
+              className={`w-full h-auto block transition-all duration-700 ease-out ${heroLoaded ? "blur-0 opacity-100" : "blur-md opacity-60"}`}
               alt="Надежда Уварова"
               src="/figmaAssets/hero-photo-main.png"
+              onLoad={() => setHeroLoaded(true)}
             />
 
             {/* Quote in the top-left cutout — 308/674 = 45.7% of photo width, 14.8% height */}

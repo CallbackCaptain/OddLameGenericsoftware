@@ -46,7 +46,7 @@ const statsData = [
 export const StatsSection = (): JSX.Element => {
   return (
     <StaggerContainer
-      className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 px-4 md:px-10 mt-6 md:mt-10 min-[1350px]:-mt-[132px] md:max-w-full min-[1350px]:max-w-[60%] relative z-10"
+      className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 px-4 md:px-10 mt-6 md:mt-10 min-[1350px]:-mt-[170px] md:max-w-full min-[1350px]:max-w-[60%] relative z-10"
       staggerDelay={0.15}
     >
       {statsData.map((stat, index) => (
@@ -57,7 +57,7 @@ export const StatsSection = (): JSX.Element => {
           <Card
             className={`${stat.bg} rounded-[20px] md:rounded-[32px] border-0 shadow-none h-full transition-transform duration-300 hover:scale-[1.02]`}
           >
-            <CardContent className="flex flex-col items-start justify-center gap-2 md:gap-3 p-4 md:p-[30px] h-auto md:h-[129px]">
+            <CardContent className="flex flex-col items-start justify-center gap-2 md:gap-3 p-4 py-6 md:p-[30px] md:py-7 min-h-[120px] md:min-h-[129px]">
               <div className={`flex ${stat.valueAlign} gap-2 md:gap-2.5`}>
                 {stat.valueParts.map((part, partIndex) => (
                   <span

@@ -57,7 +57,7 @@ export const ContactSection = (): JSX.Element => {
       </FadeIn>
 
       <div className="flex flex-col md:flex-row gap-8 md:gap-10">
-        <FadeIn direction="left" className="flex-1">
+        <FadeIn direction="left" className="flex-1 flex flex-col">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-0">
             <div className="py-5 border-b border-[#e0e0e0]">
               <span className="[font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px]">
@@ -123,9 +123,26 @@ export const ContactSection = (): JSX.Element => {
               WhatsApp
             </motion.a>
           </div>
+
+          {/* Footer — desktop only (inside left column) */}
+          <div className="hidden md:block mt-10 md:mt-14 pt-8 border-t border-[#e8e8e8]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 [font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px] leading-[20px]">
+              <span>&copy; 2026 ИП Надежда Уварова. Все права защищены</span>
+              <a href="#" className="hover:text-[#343434] transition-colors">
+                Политика обработки персональных данных
+              </a>
+              <a href="#" className="hover:text-[#343434] transition-colors">
+                Правила применения рекомендательных технологий
+              </a>
+              <a href="#" className="hover:text-[#343434] transition-colors">
+                Правила использования Cookie
+              </a>
+              <span>Разработано студией &quot;Сопряжение&quot;</span>
+            </div>
+          </div>
         </FadeIn>
 
-        <FadeIn direction="right" delay={0.2} className="w-full md:w-[50%] order-3 md:order-none">
+        <FadeIn direction="right" delay={0.2} className="w-full md:w-[50%]">
           <motion.div
             className="relative bg-[#226a43] rounded-[20px] md:rounded-[30px] p-6 md:p-8 md:pb-10 xl:pr-[220px] overflow-visible"
             whileHover={{ boxShadow: "0 12px 40px rgba(34,106,67,0.2)" }}
@@ -190,24 +207,22 @@ export const ContactSection = (): JSX.Element => {
           </motion.div>
         </FadeIn>
 
-        {/* Footer */}
-        <FadeIn className="w-full order-4 md:order-none md:w-[50%]">
-          <div className="mt-10 md:mt-14 pt-8 border-t border-[#e8e8e8]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 [font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px] leading-[20px]">
-              <span>&copy; 2026 ИП Надежда Уварова. Все права защищены</span>
-              <a href="#" className="hover:text-[#343434] transition-colors">
-                Политика обработки персональных данных
-              </a>
-              <a href="#" className="hover:text-[#343434] transition-colors">
-                Правила применения рекомендательных технологий
-              </a>
-              <a href="#" className="hover:text-[#343434] transition-colors">
-                Правила использования Cookie
-              </a>
-              <span>Разработано студией &quot;Сопряжение&quot;</span>
-            </div>
+        {/* Footer — mobile only (below form) */}
+        <div className="md:hidden w-full mt-10 pt-8 border-t border-[#e8e8e8]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 [font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px] leading-[20px]">
+            <span>&copy; 2026 ИП Надежда Уварова. Все права защищены</span>
+            <a href="#" className="hover:text-[#343434] transition-colors">
+              Политика обработки персональных данных
+            </a>
+            <a href="#" className="hover:text-[#343434] transition-colors">
+              Правила применения рекомендательных технологий
+            </a>
+            <a href="#" className="hover:text-[#343434] transition-colors">
+              Правила использования Cookie
+            </a>
+            <span>Разработано студией &quot;Сопряжение&quot;</span>
           </div>
-        </FadeIn>
+        </div>
       </div>
 
       {/* Desktop: image flush to right and bottom of section */}

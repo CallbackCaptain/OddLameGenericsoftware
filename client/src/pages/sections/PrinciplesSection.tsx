@@ -13,7 +13,7 @@ const principles = [
 const MobileSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    containScroll: "trimSnaps",
+    containScroll: false,
     slidesToScroll: 1,
   });
   const [activeIndex, setActiveIndex] = useState(0);
@@ -36,7 +36,7 @@ const MobileSlider = () => {
           {principles.map((p, idx) => (
             <div
               key={idx}
-              className="flex-[0_0_75%] min-w-0 pl-4 first:pl-4 last:pr-4"
+              className="flex-[0_0_75%] min-w-0 pl-4"
             >
               <motion.img
                 src={p.src}

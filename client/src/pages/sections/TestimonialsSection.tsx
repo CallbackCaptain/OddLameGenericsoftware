@@ -26,7 +26,7 @@ export const TestimonialsSection = (): JSX.Element => {
           <div className="hidden md:flex gap-3 mt-4">
             <motion.button
               onClick={() => setPage((p) => (p === 0 ? testimonials.length - 1 : p - 1))}
-              className="w-[50px] h-[50px] rounded-full border border-[#d3b85b] flex items-center justify-center text-[#d3b85b] transition-colors"
+              className="w-[62px] h-[52px] rounded-[12px] border border-[#d3b85b] flex items-center justify-center text-[#d3b85b] transition-colors"
               whileHover={{ scale: 1.1, backgroundColor: "#d3b85b", color: "#fff" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -34,7 +34,7 @@ export const TestimonialsSection = (): JSX.Element => {
             </motion.button>
             <motion.button
               onClick={() => setPage((p) => (p === testimonials.length - 1 ? 0 : p + 1))}
-              className="w-[50px] h-[50px] rounded-full bg-[#d3b85b] flex items-center justify-center text-white"
+              className="w-[62px] h-[52px] rounded-[12px] bg-[#d3b85b] flex items-center justify-center text-white"
               whileHover={{ scale: 1.1, backgroundColor: "#c4a94c" }}
               whileTap={{ scale: 0.95 }}
             >

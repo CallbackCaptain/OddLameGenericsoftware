@@ -14,7 +14,7 @@ import { ContactSection } from "./sections/ContactSection";
 
 export const Screen = (): JSX.Element => {
   return (
-    <div className="bg-white w-full overflow-x-hidden">
+    <div className="bg-white w-full max-w-[1920px] mx-auto overflow-x-hidden">
       <HeaderSection />
 
       {/* Hero Section */}

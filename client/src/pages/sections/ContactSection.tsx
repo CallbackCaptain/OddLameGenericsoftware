@@ -47,7 +47,7 @@ export const ContactSection = (): JSX.Element => {
 
   return (
     <>
-    <section id="contact" className="w-full px-4 md:px-10 pt-10 md:pt-16 pb-6 md:pb-8">
+    <section id="contact" className="relative w-full px-4 md:px-10 pt-10 md:pt-16 pb-6 md:pb-8 xl:pb-0">
       <FadeIn>
         <h2 className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[28px] md:text-[45px] leading-[36px] md:leading-[58.5px] tracking-[0] mb-8 md:mb-10">
           Безопасность вашего
@@ -100,7 +100,7 @@ export const ContactSection = (): JSX.Element => {
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <motion.a
               href="#"
-              className="flex items-center gap-3 px-6 py-3.5 bg-[#f3f3f3] rounded-full [font-family:'Manrope',Helvetica] font-medium text-[#202020] text-[15px]"
+              className="flex-1 flex items-center justify-center gap-3 px-6 py-3.5 bg-[#f3f3f3] rounded-full [font-family:'Manrope',Helvetica] font-medium text-[#202020] text-[15px]"
               whileHover={{ scale: 1.05, backgroundColor: "#e8e8e8" }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2 }}
@@ -112,7 +112,7 @@ export const ContactSection = (): JSX.Element => {
             </motion.a>
             <motion.a
               href="#"
-              className="flex items-center gap-3 px-6 py-3.5 bg-[#f3f3f3] rounded-full [font-family:'Manrope',Helvetica] font-medium text-[#202020] text-[15px]"
+              className="flex-1 flex items-center justify-center gap-3 px-6 py-3.5 bg-[#f3f3f3] rounded-full [font-family:'Manrope',Helvetica] font-medium text-[#202020] text-[15px]"
               whileHover={{ scale: 1.05, backgroundColor: "#e8e8e8" }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2 }}
@@ -123,32 +123,15 @@ export const ContactSection = (): JSX.Element => {
               WhatsApp
             </motion.a>
           </div>
-
-          {/* Footer */}
-          <div className="mt-10 md:mt-14 pt-8 border-t border-[#e8e8e8]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 [font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px] leading-[20px]">
-              <span>&copy; 2026 ИП Надежда Уварова. Все права защищены</span>
-              <a href="#" className="hover:text-[#343434] transition-colors">
-                Политика обработки персональных данных
-              </a>
-              <a href="#" className="hover:text-[#343434] transition-colors">
-                Правила применения рекомендательных технологий
-              </a>
-              <a href="#" className="hover:text-[#343434] transition-colors">
-                Правила использования Cookie
-              </a>
-              <span>Разработано студией &quot;Сопряжение&quot;</span>
-            </div>
-          </div>
         </FadeIn>
 
-        <FadeIn direction="right" delay={0.2} className="w-full md:w-[50%]">
+        <FadeIn direction="right" delay={0.2} className="w-full md:w-[50%] order-3 md:order-none">
           <motion.div
-            className="relative bg-[#226a43] rounded-[20px] md:rounded-[30px] p-6 md:p-8 md:pb-10 [@media(min-width:1208px)_and_(min-height:914px)]:pr-[330px] overflow-visible"
+            className="relative bg-[#226a43] rounded-[20px] md:rounded-[30px] p-6 md:p-8 md:pb-10 xl:pr-[220px] overflow-visible"
             whileHover={{ boxShadow: "0 12px 40px rgba(34,106,67,0.2)" }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[22px] md:text-[28px] leading-[30px] md:leading-[36px] tracking-[0] mb-6 relative z-10 [@media(min-width:1208px)_and_(min-height:914px)]:mr-[-180px]">
+            <h3 className="[font-family:'Manrope',Helvetica] font-semibold text-white text-[22px] md:text-[28px] leading-[30px] md:leading-[36px] tracking-[0] mb-6 relative z-10">
               Заполните форму и передайте решение правовых задач профессионалу
             </h3>
 
@@ -204,14 +187,35 @@ export const ContactSection = (): JSX.Element => {
               </motion.div>
             </form>
 
-            <img
-              src="/bot_form_pic.png"
-              alt="Юрист"
-              className="hidden [@media(min-width:1208px)_and_(min-height:914px)]:block absolute right-0 bottom-0 w-[280px] lg:w-[340px] h-auto object-contain"
-            />
           </motion.div>
         </FadeIn>
+
+        {/* Footer */}
+        <FadeIn className="w-full order-4 md:order-none md:w-[50%]">
+          <div className="mt-10 md:mt-14 pt-8 border-t border-[#e8e8e8]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 [font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px] leading-[20px]">
+              <span>&copy; 2026 ИП Надежда Уварова. Все права защищены</span>
+              <a href="#" className="hover:text-[#343434] transition-colors">
+                Политика обработки персональных данных
+              </a>
+              <a href="#" className="hover:text-[#343434] transition-colors">
+                Правила применения рекомендательных технологий
+              </a>
+              <a href="#" className="hover:text-[#343434] transition-colors">
+                Правила использования Cookie
+              </a>
+              <span>Разработано студией &quot;Сопряжение&quot;</span>
+            </div>
+          </div>
+        </FadeIn>
       </div>
+
+      {/* Desktop: image flush to right and bottom of section */}
+      <img
+        src="/bot_form_pic.png"
+        alt="Юрист"
+        className="hidden xl:block absolute right-0 bottom-0 w-[300px] max-w-[300px] h-auto object-contain pointer-events-none"
+      />
     </section>
 
       {/* Popup "Спасибо за заявку" */}

@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import { Screen } from "@/pages/Screen";
 import { useEffect } from "react";
 import Success from "./pages/Success";
+import Cookie from "@/pages/Cookie";
 
 function ScrollToAnchor() {
   const [path] = useLocation();
@@ -32,8 +33,8 @@ function Router() {
       <Switch>
         <Route path="/" component={Screen} />
         <Route path="/success" component={Success} />
+        <Route path="/cookie" component={Cookie} />
         <Route path="*" component={NotFound} />
-
       </Switch>
     </>
   );

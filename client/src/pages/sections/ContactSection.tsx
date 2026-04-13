@@ -69,7 +69,7 @@ export const ContactSection = (): JSX.Element => {
               <p className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[16px] md:text-[18px] leading-[26px] mt-2">
                 ИП Надежда Уварова
                 <br />
-                ИНН 0000000000
+                ИНН 381296489483
               </p>
             </div>
             <div className="py-5 border-b border-[#e0e0e0]">
@@ -87,7 +87,7 @@ export const ContactSection = (): JSX.Element => {
                 Номер телефона
               </span>
               <p className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[16px] md:text-[18px] leading-[26px] mt-2">
-                +7 (000) 000-00-00
+                +7 (914) 881-36-65
               </p>
             </div>
             <div className="py-5">
@@ -95,14 +95,14 @@ export const ContactSection = (): JSX.Element => {
                 E-mail
               </span>
               <p className="[font-family:'Manrope',Helvetica] font-semibold text-[#202020] text-[16px] md:text-[18px] leading-[26px] mt-2">
-                example@gmail.com
+                law.assistent@mail.ru
               </p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <motion.a
-              href="#"
+              href="https://t.me/79148813665"
               className="flex-1 flex items-center justify-center gap-3 px-6 py-3.5 bg-[#f3f3f3] rounded-full [font-family:'Manrope',Helvetica] font-medium text-[#202020] text-[15px]"
               whileHover={{ scale: 1.05, backgroundColor: "#e8e8e8" }}
               whileTap={{ scale: 0.97 }}
@@ -114,7 +114,7 @@ export const ContactSection = (): JSX.Element => {
               Telegram
             </motion.a>
             <motion.a
-              href="#"
+              href="https://wa.me/79148813665"
               className="flex-1 flex items-center justify-center gap-3 px-6 py-3.5 bg-[#f3f3f3] rounded-full [font-family:'Manrope',Helvetica] font-medium text-[#202020] text-[15px]"
               whileHover={{ scale: 1.05, backgroundColor: "#e8e8e8" }}
               whileTap={{ scale: 0.97 }}
@@ -140,7 +140,9 @@ export const ContactSection = (): JSX.Element => {
               <a href="#" className="hover:text-[#343434] transition-colors">
                 Правила использования Cookie
               </a>
-              <span>Разработано студией &quot;Сопряжение&quot;</span>
+              <a href="https://sopryajenie.ru/" className="hover:text-[#343434] transition-colors">
+                Разработано студией &quot;Сопряжение&quot;
+              </a>
             </div>
           </div>
         </FadeIn>

@@ -79,22 +79,22 @@ const Success = () => {
           <ul className="max-[1180px]:mb-[-30px] grid grid-cols-2 gap-x-4 gap-y-4 text-sm text-[#787878]">
             <li className="max-[1180px]:text-[10px] max-[1380px]:text-[11px]">© 2025 ИП Надежда Уварова. Все права защищены</li>
             <li>
-              <a className="max-[1180px]:text-[10px]  max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]" href="">
+              <a href="/cookie" className="max-[1180px]:text-[10px]  max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
                 Политика обработки персональных данных
               </a>
             </li>
             <li>
-              <a className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]" href="">
+              <a href="/cookie" className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
                 Правила применения рекомендательных технологий
               </a>
             </li>
             <li>
-              <a className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]" href="">
+              <a href="/cookie" className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
                 Правила использования Cookie
               </a>
             </li>
             <li>
-              <a className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]" href="">
+              <a href="https://sopryajenie.ru/" className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
                 Разработано студией "Сопряжение"
               </a>
             </li>

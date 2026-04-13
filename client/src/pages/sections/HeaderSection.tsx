@@ -51,7 +51,7 @@ export const HeaderSection = (): JSX.Element => {
         {navItems.map((item, idx) => (
           <motion.a
             key={item.label}
-            href={item.href}
+            href={`/${item.href}`}
             className="[font-family:'Manrope',Helvetica] font-semibold text-[#333333] text-[15px] tracking-[0] leading-[22.5px] whitespace-nowrap cursor-pointer relative"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}

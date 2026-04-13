@@ -1,16 +1,41 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 
 import { Screen } from "@/pages/Screen";
+import { useEffect } from "react";
+import Success from "./pages/Success";
+
+function ScrollToAnchor() {
+  const [path] = useLocation();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          window.scrollTo({ top: el.offsetTop, behavior: 'instant' });
+        }
+      }, 50);
+    }
+  }, [path]);
+
+  return null;
+}
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Screen} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToAnchor />
+      <Switch>
+        <Route path="/" component={Screen} />
+        <Route path="/success" component={Success} />
+        <Route path="*" component={NotFound} />
+
+      </Switch>
+    </>
   );
 }
 

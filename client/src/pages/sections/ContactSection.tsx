@@ -2,12 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/lib/animations";
+import { useLocation } from "wouter";
 
 export const ContactSection = (): JSX.Element => {
   const [agreed, setAgreed] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [location, setLocation] = useLocation()
 
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, "");
@@ -40,7 +42,8 @@ export const ContactSection = (): JSX.Element => {
       setPhoneError("Введите номер в формате +7 XXX XXX XX XX");
       return;
     }
-    setShowSuccess(true);
+
+    setLocation("/success");
     setPhone("");
     setPhoneError("");
   };

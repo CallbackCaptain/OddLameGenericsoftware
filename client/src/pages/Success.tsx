@@ -1,7 +1,7 @@
-import { HeaderSection } from "./sections/HeaderSection";
 import { motion } from "framer-motion";
+import { HeaderSection } from "./sections/HeaderSection";
 
-const notFound = (): JSX.Element => {
+const Success = () => {
   return (
     <div className="bg-white w-full min-w-[330px] max-w-[4000px]">
       <HeaderSection />
@@ -15,19 +15,19 @@ const notFound = (): JSX.Element => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <h1 className="max-[1024px]:text-[70px] text-[120px] max-[1390px]:text-[90px] max-[1140px]:text-[68px] font-semibold leading-none">
-            404
+          <h1 className="text-[45px] max-[1380px]:text-[32px] max-[1024px]:text-[28px] font-semibold leading-none">
+            Спасибо за заявку!
           </h1>
-          <h2 className="max-[1024px]:text-[28px] text-[45px] max-[1390px]:text-[34px] max-[1140px]:text-[25px] font-semibold">
-            Данная страница не найдена
+          <h2 className="text-[45px] max-[1380px]:text-[32px] max-[1024px]:text-[28px] font-semibold text-[#AEAEAE]">
+            Теперь ваш бизнес под защитой
           </h2>
         </motion.div>
 
         <motion.img
           className="max-[1023px]:hidden"
           width="100%"
-          src="/Subtract.png"
-          alt="404"
+          src="/success.png"
+          alt="Success"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -35,7 +35,7 @@ const notFound = (): JSX.Element => {
 
         <div className="max-[1023px]:block hidden max-w-[500px] w-[100%] relative">
           <motion.img
-            className="mt-5" width="100%" src="/Subtract_m.png" alt="404"
+            className="mt-5" width="100%" src="/success_m.png" alt="Success"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -113,4 +113,4 @@ const notFound = (): JSX.Element => {
   );
 };
 
-export default notFound;
+export default Success;

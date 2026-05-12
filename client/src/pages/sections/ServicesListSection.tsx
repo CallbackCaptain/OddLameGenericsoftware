@@ -1,35 +1,84 @@
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback, useEffect, useState } from "react";
+import { FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/lib/animations";
+import { Card, cards } from "./data";
+import "./styles.css"
 
-const allServices = [
-  { id: 1, src: "/service-1.svg", alt: "Сопровождение бизнеса" },
-  { id: 2, src: "/service-2.svg", alt: "Сопровождение налоговых проверок" },
-  { id: 3, src: "/service-3.svg", alt: "Представление интересов юридических лиц в суде" },
-  { id: 4, src: "/service-4.svg", alt: "Регистрация и запуск бизнеса" },
-  { id: 5, src: "/service-5.svg", alt: "Разработка и ведение документации" },
-  { id: 6, src: "/service-6.svg", alt: "Получение субсидий и господдержки" },
-];
+export const ServiceCard = ({ card, isMob }: { card: Card, isMob?: boolean }) => {
+  const { tegs, wtags, rad, title, discription, background, color, mob } = card
 
-const ServiceCard = ({ service }: { service: (typeof allServices)[0] }) => {
+  console.log(mob, isMob)
+
+  const isMobail = isMob && mob  
+
   return (
     <motion.div
-      className="relative w-full h-full"
+      className="relative w-full h-full text-white serviceCard"
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
+      style={{ background, color, }}
     >
-      <img
-        src={service.src}
-        alt={service.alt}
-        className="w-full h-auto block"
+      
+      <div
+        className="serviceCard__tags"
+        style={isMobail ? {
+          width: mob.wtags,
+          height: 145
+        } : { width: wtags }}
       />
-      {/* Clickable button overlay positioned over the button area in the SVG */}
-      <a
-        href="#contact"
-        className="absolute left-[5.7%] right-[5.7%] bottom-[4.8%] h-[12%] rounded-[31.5px] cursor-pointer"
-        aria-label={`Заказать: ${service.alt}`}
+
+      <div
+        className="serviceCard__rl"
+        style={isMobail ? {
+          top: 42,
+        } : {}}
       />
+
+      <div
+        className="serviceCard__rr"
+        style={{ left: isMobail ? mob.rad : rad }}
+      />
+
+      <div
+        className="serviceCard__itemsv"
+        style={isMobail ? {
+          flexDirection: "column",
+          gap: 8
+        } : {}}
+      >
+        {tegs.map((tag) => (
+          <div
+            className="serviceCard__itemv"
+            kay={tag}
+          >
+              {tag}
+          </div>
+        ))}
+      </div>
+
+      <div className="serviceCard__content">
+        <h4 className="serviceCard__title">{title}</h4>
+
+        <ul className="serviceCard__discription">
+          {discription.map(item => (
+            <li className="serviceCard__item" kye={item}>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="#contact"
+          className="serviceCard__action"
+          aria-label={`Заказать: услугу`}
+        >
+          <span>Заказать услугу</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+          <path d="M6.70703 16.2918L16.2904 6.7085M16.2904 6.7085H6.70703M16.2904 6.7085V16.2918" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
     </motion.div>
   );
 };
@@ -55,14 +104,14 @@ const MobileSlider = () => {
 
   return (
     <div className="md:hidden">
-      <div className="overflow-hidden -mx-4" ref={emblaRef}>
+      <div className="overflowX-hidden -mx-4" ref={emblaRef}>
         <div className="flex">
-          {allServices.map((service) => (
+          {cards.map((card) => (
             <div
-              key={service.id}
-              className="flex-[0_0_85%] min-w-0 pl-4"
+              key={card.id}
+              className="flex-[0_0_85%] min-w-[336px] pl-4"
             >
-              <ServiceCard service={service} />
+              <ServiceCard card={card} isMob />
             </div>
           ))}
         </div>
@@ -70,12 +119,12 @@ const MobileSlider = () => {
 
       {/* Dots */}
       <div className="flex justify-center gap-2 mt-4 pb-8">
-        {allServices.map((_, idx) => (
+        {cards.map(({ id }) => (
           <button
-            key={idx}
-            onClick={() => emblaApi?.scrollTo(idx)}
+            key={id}
+            onClick={() => emblaApi?.scrollTo(id)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              activeIndex === idx
+              activeIndex === id
                 ? "bg-[#226a43] w-6"
                 : "bg-[#dcdcdc]"
             }`}
@@ -111,12 +160,12 @@ export const ServicesListSection = (): JSX.Element => {
 
       {/* Desktop: 3-col grid */}
       <StaggerContainer
-        className="hidden md:grid grid-cols-3 gap-6 w-full pb-10"
+        className="hidden md:grid card1:grid-cols-1 card2:grid-cols-2 card3:grid-cols-3 gap-6 w-full pb-10"
         staggerDelay={0.1}
       >
-        {allServices.map((service) => (
-          <StaggerItem key={service.id}>
-            <ServiceCard service={service} />
+        {cards.map((card) => (
+          <StaggerItem key={card.id}>
+            <ServiceCard card={card} />
           </StaggerItem>
         ))}
       </StaggerContainer>

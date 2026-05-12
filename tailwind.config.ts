@@ -71,6 +71,11 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      screens: {
+        'card1': '768px',
+        'card2': '915px',
+        'card3': '1350px',
+      },
     },
     container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
   },

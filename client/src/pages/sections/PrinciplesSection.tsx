@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { FadeIn } from "@/lib/animations";
+import PrinciplesCard from "./PrinciplesCard";
+import "./PrinciplesCard.css";
 
 const principles = [
-  { src: "/principle-1.png", alt: "01 — Информационная открытость" },
-  { src: "/principle-2.svg", alt: "02 — Работа, рассчитанная на результат" },
-  { src: "/principle-3.png", alt: "03 — Бизнес-ориентированность" },
-  { src: "/principle-4.png", alt: "04 — Защита всей вашей информации" },
+  { src: "/principle-1.png", alt: "01 — Информационная открытость", count: "01", title: "Информационная открытость", text: "Все действия, риски и решения объясняются простым языком. Клиент всегда понимает, что происходит, зачем и почему"  },
+  { src: "/principle-2.svg", alt: "02 — Работа, рассчитанная на результат", count: "02", title: "Работа, рассчитанная на результат", text: "Каждый вопрос довожу до результата. Не перекладываю задачи на клиента и не оставляю дела «в подвешенном состоянии»" },
+  { src: "/principle-3.png", alt: "03 — Бизнес-ориентированность", count: "03", title: "Бизнес-ориентированность", text: "Работаю как часть бизнеса: учитываю интересы компании, особенности всех процессов, долгосрочные цели и перспективы",  },
+  { src: "/principle-4.png", alt: "04 — Защита всей вашей информации", count: "04", title: "Защита всей вашей информации", text: "Вся информация, полученная в процессе работы, остаётся только между мной и клиентом и не передаётся третьим лицам" },
 ];
 
 const MobileSlider = () => {
@@ -32,19 +34,14 @@ const MobileSlider = () => {
   return (
     <div className="md:hidden">
       <div className="overflow-hidden -mx-4" ref={emblaRef}>
-        <div className="flex">
+        <div className="flex MobileSlider">
           {principles.map((p, idx) => (
             <div
               key={idx}
-              className="flex-[0_0_75%] min-w-0 pl-4"
+              className="min-w-0 pl-4"
+              
             >
-              <motion.img
-                src={p.src}
-                alt={p.alt}
-                className="w-full h-auto block"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-              />
+              <PrinciplesCard count={p.count} title={p.title} text={p.text} bol={p.count === "04"}  />
             </div>
           ))}
         </div>
@@ -105,13 +102,13 @@ export const PrinciplesSection = (): JSX.Element => {
         <div className="principles-cards">
           {principles.map((p, idx) => (
             <FadeIn key={idx} delay={idx * 0.12} className={`principles-card ${idx % 2 === 1 ? "principles-card--offset" : ""}`}>
-              <motion.img
-                src={p.src}
-                alt={p.alt}
+              <motion.div
                 className="principles-card__img"
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
-              />
+              >
+                <PrinciplesCard count={p.count} title={p.title} text={p.text} bol={p.count === "04"}  />
+              </motion.div>
             </FadeIn>
           ))}
         </div>

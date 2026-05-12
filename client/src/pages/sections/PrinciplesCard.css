@@ -1,0 +1,60 @@
+.principlesCard {
+  position: relative;
+  width: max-content;
+}
+
+.principlesCard__count {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: +1;
+
+  font-family: Manrope;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 20px;
+  leading-trim: NONE;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.principlesCard__content {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  width: calc(322px - 50px);
+}
+
+.principlesCard__title {
+  font-family: Manrope;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 20px;
+  leading-trim: NONE;
+  line-height: 140%;
+  letter-spacing: 0%;
+  color: #202020;
+}
+
+.principlesCard__text {
+  margin-top: 8px;
+  font-family: Manrope;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 15px;
+  leading-trim: NONE;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #343434;
+  width: 100%;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .MobileSlider {
+    gap: 330px;
+    display: flex;
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,231 @@
+.serviceCard {
+  border-radius: 50px;
+  border-top-left-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: relative;
+  min-width: 320px;
+}
+
+:root {
+  /* --wb: 250px;
+  --hb: 100px;
+  --rb: 50px; */
+  --wb: 250px;
+  --ml: 180px;
+  --hb: 100px;
+  --rb: 38px;
+}
+
+.serviceCard__tags {
+  width: var(--wb);
+  height: var(--hb);
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(var(--hb) / 2 * -1);
+  left: calc(var(--hb) / 2 * -1);
+  border-radius: var(--rb);
+  background-color: white;
+}
+
+.tag {
+  background-color: rgba(211, 184, 91, 1);
+}
+
+.serviceCard__rl {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0px;
+  left: -50px;
+  background-image: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 50px, white 20px);
+  transform: rotate(180deg);
+  z-index: 20;
+}
+
+.serviceCard__rr {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -33px;
+  left: var(--ml);
+  background-image: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 25px, #ffffff 20px);
+  transform: rotate(198deg);
+}
+
+.serviceCard__itemsv {
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  gap: 10px
+}
+
+.serviceCard__itemv {
+  background-color: rgba(211, 184, 91, 1);
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-family: Manrope;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 15px;
+  leading-trim: NONE;
+  line-height: 120%;
+  letter-spacing: 0%;
+color: white;
+text-align: center;
+}
+
+.serviceCard__content {
+  padding: 25px;
+  padding-top: 108px;
+  width: 100%;
+  /* max-width: 437px; */
+}
+
+.serviceCard__title {
+  font-family: Manrope;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 28px;
+  leading-trim: NONE;
+  line-height: 140%;
+  letter-spacing: 0%;
+  font-size: 28px;
+}
+
+.serviceCard__discription {
+  margin-top: 5px;
+   list-style-type: disc;
+   padding-left: 25px;
+}
+
+.serviceCard__item {
+  margin-top: 10px;
+  font-family: Manrope;
+font-weight: 400;
+font-style: Regular;
+font-size: 15px;
+leading-trim: NONE;
+line-height: 150%;
+letter-spacing: 0%;
+}
+
+.serviceCard__action {
+  margin-top: 20px;
+  background: rgba(32, 32, 32, 1);
+  border-radius: 32px;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* .serviceCard {
+  border-radius: 50px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: relative;
+}
+
+:root {
+  --size: 100px;
+}
+
+.serviceCard__tags {
+  width: 250px;
+  height: 100px;
+  box-sizing: border-box;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.serviceCard__rl {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0px;
+  left: -50px;
+  background-image: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 50px, white 20px);
+  transform: rotate(180deg);
+  z-index: 20;
+}
+
+.serviceCard__rr {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -32px;
+    left: 174px;
+    background-image: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 25px, #ffffff 20px);
+    transform: rotate(186deg);
+
+}
+
+.serviceCard__content {
+  padding: 25px;
+  padding-top: 108px;
+  width: 100%;
+  /* max-width: 437px; */
+/* } */
+
+/* .serviceCard__title {
+  font-family: Manrope;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 28px;
+  leading-trim: NONE;
+  line-height: 140%;
+  letter-spacing: 0%;
+  font-size: 28px;
+}
+
+.serviceCard__discription {
+  margin-top: 5px;
+   list-style-type: disc;
+   padding-left: 25px;
+}
+
+.serviceCard__item {
+  margin-top: 10px;
+  font-family: Manrope;
+font-weight: 400;
+font-style: Regular;
+font-size: 15px;
+leading-trim: NONE;
+line-height: 150%;
+letter-spacing: 0%;
+}
+
+.serviceCard__action {
+  margin-top: 20px;
+  background: rgba(32, 32, 32, 1);
+  border-radius: 32px;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+} */ 

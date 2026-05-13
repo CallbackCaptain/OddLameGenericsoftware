@@ -1,9 +1,22 @@
 export default function CookiePage() {
   return (
     <div className="min-h-screen bg-stone-50 px-4 py-12 sm:py-16">
+
+
+
       <div className="max-w-2xl mx-auto">
 
         <header className="mb-10 pb-8 border-b border-stone-200 text-center">
+            <a
+              href="/"
+              className="w-[300px] mb-[50px] flex-1 flex items-center justify-center gap-3 px-6 py-3.5 bg-[#f3f3f3] rounded-full [font-family:'Manrope',Helvetica] font-medium text-[#202020] text-[15px]"
+              style={{ cursor: 'pointer' }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" style={{ transform: "scaleX(-1)" }} width="17" height="17" viewBox="0 0 19 18" fill="none"><path d="M8.98522 0.5L17.4704 8.9853M17.4704 8.9853L8.98522 17.4706M17.4704 8.9853L0.5 8.9853" stroke="black" stroke-linecap="round"></path></svg>
+              Перейти на основную
+            </a>
+
+
           <p className="text-xs uppercase tracking-widest text-stone-400 mb-3">
             ИП Уварова Надежда Игоревна
           </p>

@@ -51,22 +51,17 @@ const Success = () => {
           <ul className="absolute -translate-y-[-100%] w-[100%] pt-5 bottom-0 text-right text-[#787878]">
             <li className="text-[13px]">© 2025 ИП Надежда Уварова. Все права защищены</li>
             <li className="mt-[12px]">
-              <a className="text-[13px] underline underline-offset-2 decoration-[0.5px]" href="">
+              <a target="_blank" className="text-[13px] underline underline-offset-2 decoration-[0.5px]" href="/privacy">
                 Политика обработки персональных данных
               </a>
             </li>
             <li className="mt-[12px]">
-              <a className="text-[13px] underline underline-offset-2 decoration-[0.5px]" href="">
-                Правила применения рекомендательных технологий
-              </a>
-            </li>
-            <li className="mt-[12px]">
-              <a className="text-[13px] underline underline-offset-2 decoration-[0.5px]" href="">
+              <a target="_blank" className="text-[13px] underline underline-offset-2 decoration-[0.5px]" href="/cookie">
                 Правила использования Cookie
               </a>
             </li>
             <li className="mt-[12px]">
-              <a className="text-[13px] underline underline-offset-2 decoration-[0.5px]" href="">
+              <a target="_blank" className="text-[13px] underline underline-offset-2 decoration-[0.5px]" href="">
                 Разработано студией "Сопряжение"
               </a>
             </li>
@@ -79,22 +74,17 @@ const Success = () => {
           <ul className="max-[1180px]:mb-[-30px] grid grid-cols-2 gap-x-4 gap-y-4 text-sm text-[#787878]">
             <li className="max-[1180px]:text-[10px] max-[1380px]:text-[11px]">© 2025 ИП Надежда Уварова. Все права защищены</li>
             <li>
-              <a href="/cookie" className="max-[1180px]:text-[10px]  max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
+              <a target="_blank" href="/privacy" className="max-[1180px]:text-[10px]  max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
                 Политика обработки персональных данных
               </a>
             </li>
             <li>
-              <a href="/cookie" className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
-                Правила применения рекомендательных технологий
-              </a>
-            </li>
-            <li>
-              <a href="/cookie" className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
+              <a target="_blank" href="/cookie" className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
                 Правила использования Cookie
               </a>
             </li>
             <li>
-              <a href="https://sopryajenie.ru/" className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
+              <a target="_blank" href="https://sopryajenie.ru/" className="max-[1180px]:text-[10px] max-[1380px]:text-[11px] underline underline-offset-2 decoration-[0.5px]">
                 Разработано студией "Сопряжение"
               </a>
             </li>

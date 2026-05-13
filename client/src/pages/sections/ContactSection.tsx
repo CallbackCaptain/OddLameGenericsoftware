@@ -131,16 +131,13 @@ export const ContactSection = (): JSX.Element => {
           <div className="hidden md:block mt-10 md:mt-14 pt-8 border-t border-[#e8e8e8]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 [font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px] leading-[20px]">
               <span>&copy; 2026 ИП Надежда Уварова. Все права защищены</span>
-              <a href="/cookie" className="hover:text-[#343434] transition-colors">
+              <a target="_blank" href="/privacy" className="hover:text-[#343434] transition-colors">
                 Политика обработки персональных данных
               </a>
-              <a href="/cookie" className="hover:text-[#343434] transition-colors">
-                Правила применения рекомендательных технологий
-              </a>
-              <a href="/cookie" className="hover:text-[#343434] transition-colors">
+              <a target="_blank" href="/cookie" className="hover:text-[#343434] transition-colors">
                 Правила использования Cookie
               </a>
-              <a href="https://sopryajenie.ru/" className="hover:text-[#343434] transition-colors">
+              <a target="_blank" href="https://sopryajenie.ru/" className="hover:text-[#343434] transition-colors">
                 Разработано студией &quot;Сопряжение&quot;
               </a>
             </div>
@@ -216,13 +213,10 @@ export const ContactSection = (): JSX.Element => {
         <div className="md:hidden w-full mt-10 pt-8 border-t border-[#e8e8e8]">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 [font-family:'Manrope',Helvetica] font-normal text-[#aeaeae] text-[13px] md:text-[14px] leading-[20px]">
             <span>&copy; 2026 ИП Надежда Уварова. Все права защищены</span>
-            <a href="#" className="hover:text-[#343434] transition-colors">
+            <a target="_blank" href="/privacy" className="hover:text-[#343434] transition-colors">
               Политика обработки персональных данных
             </a>
-            <a href="#" className="hover:text-[#343434] transition-colors">
-              Правила применения рекомендательных технологий
-            </a>
-            <a href="#" className="hover:text-[#343434] transition-colors">
+            <a target="_blank" href="/cookie" className="hover:text-[#343434] transition-colors">
               Правила использования Cookie
             </a>
             <span>Разработано студией &quot;Сопряжение&quot;</span>
